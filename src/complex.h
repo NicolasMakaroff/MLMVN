@@ -1,4 +1,4 @@
-#include<cstdio>
+#include<cmath>
 
 #if !defined(__COMPLEX_H)
 #define __COMPLEX_H
@@ -22,8 +22,8 @@ namespace complex_number{
                         Complex(Complex<_Tp>&);
                         _Tp getReal();
                         _Tp getImag();
-                        void setReal();
-                        void setImag();
+                        void setReal(_Tp);
+                        void setImag(_Tp);
                         _Tp abs(const Complex<_Tp>&);
                         _Tp arg(const Complex<_Tp>&);
                         _Tp norm(const Complex<_Tp>&);
@@ -37,6 +37,41 @@ namespace complex_number{
         
                 };
 
+        template<typename _Tp>
+        _Tp Complex<_Tp>::getReal(){
+                return this->real_;
+        }
+
+        template<typename _Tp>
+        _Tp Complex<_Tp>::getImag(){
+                return this->imag_;
+        }
+
+        template<typename _Tp>
+        void Complex<_Tp>::setReal(_Tp real_){
+                this->real_ = real_;
+        }
+
+        template<typename _Tp>
+        void Complex<_Tp>::setImag(_Tp imag_){
+                this->imag_ = imag_;
+        }
+
+        template<typename _Tp>
+        _Tp Complex<_Tp>::abs(const Complex<_Tp>& _z){
+                return sqrt(_z.real_ * _z.real_ + _z.imag_ * _z.imag_);
+        }
+
+        template<typename _Tp>
+        _Tp Complex<_Tp>::arg(const Complex<_Tp>& _z){
+                return  atan2(_z.imag(), _z.real());
+        }
+
+        template<typename _Tp>
+        _Tp Complex<_Tp>::norm(const Complex<_Tp>& _z){
+                return _z.real_ * _z.real_ + _z.imag_ * _z.imag_;
+        }
+        
         template<typename _Tp>
         Complex<_Tp> &Complex<_Tp>::operator+=(const Complex<_Tp>& _z){
                 real_ += _z.real_;
