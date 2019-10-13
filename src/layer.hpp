@@ -22,29 +22,6 @@ namespace layer{
                 arma::cx_mat getWeightsMatrix();
         };
 
-        ComplexLayer::ComplexLayer(int inputNeurons, int outputNeurons, std::string activation) : 
-        inputNeurons(inputNeurons), outputNeurons(outputNeurons), activation(activation)
-        {
-                weightsMatrix = arma::cx_mat(inputNeurons, outputNeurons, arma::fill::randu);
-        }
-
-        int ComplexLayer::getInputNeurons(){
-                return inputNeurons;
-        }
-
-        int ComplexLayer::getOutputNeurons(){
-                return outputNeurons;
-        }
-
-        std::string ComplexLayer::getActivation(){
-                return activation;
-        }
-
-        arma::cx_mat ComplexLayer::getWeightsMatrix(){
-                return weightsMatrix;
-        }
-
-
 }
 
 #endif // _LAYER_HPP_
