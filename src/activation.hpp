@@ -1,23 +1,35 @@
 #include<string>
-#include "complex.hpp"
+#include<math.h>
+#include<cmath>
+#include<complex>
+//#include "complex.hpp"
 
 #if !defined(_ACTIVATION_H_)
 #define _ACTIVATION_H_
 
-class Activation{
-        public:
-        std::string type;
+namespace activation{
 
-        private:
-        Activation(std::string);
         std::string getType();
+
         void setType(std::string);
-        complex_number::Complex<double> NonPeriodic(double); 
-        complex_number::Complex<int> NonPeriodic(int);
-        complex_number::Complex<double> Periodic(double);
-        complex_number::Complex<int> Periodic(int);
-        
-};
+
+        std::complex<double> NonPeriodicDiscrete(std::complex<double>, int categories); 
+
+        std::complex<double> NonPeriodicContinuous(std::complex<double>);
+
+        std::complex<double> PeriodicDiscrete(std::complex<double>, int,int);
+
+        std::complex<double> PeriodicContinuous(std::complex<double>, int, int);
+
+        double shiftAngle(double);
+
+
+}
+
+
+
+
+
 
 
 #endif // _ACTIVATION_H_

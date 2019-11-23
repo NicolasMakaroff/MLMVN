@@ -1,7 +1,6 @@
 #include "layer.hpp"
 
-layer::ComplexLayer::ComplexLayer(int inputNeurons, int outputNeurons, std::string activation) : 
-inputNeurons(inputNeurons), outputNeurons(outputNeurons), activation(activation)
+layer::ComplexLayer::ComplexLayer(int inputNeurons, int outputNeurons, std::string activation) : inputNeurons(inputNeurons), outputNeurons(outputNeurons), activation(activation)
 {
         weightsMatrix = arma::cx_mat(inputNeurons, outputNeurons, arma::fill::randu);
 }
